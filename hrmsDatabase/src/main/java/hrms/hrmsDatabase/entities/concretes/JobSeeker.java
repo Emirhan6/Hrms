@@ -33,6 +33,6 @@ public class JobSeeker extends User{
 	@Column(name="nationality_id")
 	private String nationalityId;
 	
-	@Column(name="birth_date")
+	@Column(name="birth_year")
 	private String birthDate;
 }
