@@ -44,5 +44,4 @@ public class JobSeekerManager implements JobSeekerService{
 		return new SuccessDataResult<JobSeeker>
 		(this.jobSeekerDao.getByNationalityId(nationalityId),"Data Listelendi");
 	}
-
 }
