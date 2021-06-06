@@ -44,4 +44,16 @@ public class PositionManager implements PositionService{
 		return new SuccessDataResult<Position>(this.positionDao.getByPositionName(positionName),"Data Listelendi");
 	}
 
+	@Override
+	public Result delete(int id) {
+		this.positionDao.deleteById(id);
+		return new SuccessResult("Pozisyon Silindi");
+	}
+
+	@Override
+	public Result update(Position position) {
+		this.positionDao.save(position);
+		return new SuccessResult("Pozisyon Güncellendi");
+	}
+
 }

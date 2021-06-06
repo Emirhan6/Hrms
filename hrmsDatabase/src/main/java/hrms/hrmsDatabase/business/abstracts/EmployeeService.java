@@ -9,4 +9,6 @@ import hrms.hrmsDatabase.entities.concretes.Employee;
 public interface EmployeeService {
 	DataResult<List<Employee>> getAll();
 	Result add(Employee employee);
+	Result delete(int id);
+	Result update(Employee employee);
 }

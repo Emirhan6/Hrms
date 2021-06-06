@@ -9,5 +9,7 @@ import hrms.hrmsDatabase.entities.concretes.Position;
 public interface PositionService {
 	DataResult<List<Position>> getAll();
 	Result add(Position position);
+	Result delete(int id);
+	Result update(Position position);
 	DataResult<Position> getByPositionName(String positionName);
 }

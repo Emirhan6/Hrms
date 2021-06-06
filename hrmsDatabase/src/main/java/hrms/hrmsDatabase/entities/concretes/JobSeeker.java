@@ -1,10 +1,15 @@
 package hrms.hrmsDatabase.entities.concretes;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,4 +40,11 @@ public class JobSeeker extends User{
 	
 	@Column(name="birth_year")
 	private String birthDate;
+	
+	@Column(name="image_url")
+	private String imageUrl;
+	
+	@OneToMany(mappedBy = "jobSeeker")
+    @JsonIgnore
+    private List<Cv> cv;
 }

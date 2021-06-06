@@ -1,13 +1,18 @@
 package hrms.hrmsDatabase.entities.concretes;
 
-import java.time.LocalDate;
+//import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+//import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Table(name="cvs")
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","products"})
 public class Cv {
 	
 	@Id
@@ -25,8 +31,12 @@ public class Cv {
 	@Column(name="cv_id")
 	private int cvId;
 	
-	@Column(name="user_id")
-	private int userId;
+	//@Column(name="user_id")
+	//private int userId;
+	
+	@ManyToOne()
+    @JoinColumn(name = "user_id")
+    private JobSeeker jobSeeker;
 	
 	@Column(name="school_name")
 	private String schoolName;
@@ -36,11 +46,11 @@ public class Cv {
 	private String department;
 	
 	@Column(name="start_year")
-	private LocalDate startYear;
+	private String startYear;
 	
 	
 	@Column(name="graduation_year")
-	private LocalDate graduationYear;
+	private String graduationYear;
 	
 	
 	@Column(name="experience_workplace_name")
