@@ -44,7 +44,7 @@ public class JobSeekersController {
 		return this.jobSeekerService.add(jobSeeker);
 	}
 	
-	@PostMapping("uploadImage")
+	/*@PostMapping("uploadImage")
     public ResponseEntity<?> uploadImage(@RequestParam int jobSeekerId, @RequestParam MultipartFile file){
         DataResult result = null ;
         try {
@@ -59,7 +59,7 @@ public class JobSeekersController {
         }
         return  ResponseEntity.ok(result);
     }
-	
+	*/
 	@DeleteMapping("/delete")
 	public Result delete(@RequestBody int id) {
 		return this.jobSeekerService.delete(id);
@@ -68,5 +68,15 @@ public class JobSeekersController {
 	@PutMapping("/update")
 	public Result update(@RequestBody JobSeeker jobSeeker) {
 		return this.jobSeekerService.update(jobSeeker);
+	}
+	
+	@GetMapping("/getbyid")
+	public DataResult<JobSeeker> getById(@RequestParam int id){
+		return this.jobSeekerService.getById(id);
+	}
+	
+	@GetMapping("/getbyname")
+	public DataResult<JobSeeker> getById(@RequestParam String name){
+		return this.jobSeekerService.getByName(name);
 	}
 }

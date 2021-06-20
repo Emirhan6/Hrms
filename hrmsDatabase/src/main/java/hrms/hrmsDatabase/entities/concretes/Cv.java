@@ -1,5 +1,7 @@
 package hrms.hrmsDatabase.entities.concretes;
 
+import java.util.List;
+
 //import java.util.List;
 
 import javax.persistence.Column;
@@ -9,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 //import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -76,8 +80,8 @@ public class Cv {
 	@Column(name="language_level")
 	private int languageLevel;
 	
-	@Column(name="image_url")
-	private String imageUrl;
+	//@Column(name="image_url")
+	//private String imageUrl;
 
 	
 	@Column(name="github_account")
@@ -94,4 +98,7 @@ public class Cv {
 	
 	@Column(name="descriptions")
 	private String descriptions;
+	
+	@OneToOne(mappedBy = "cv")
+	private Image image;
 }

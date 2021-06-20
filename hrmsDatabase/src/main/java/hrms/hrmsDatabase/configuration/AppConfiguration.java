@@ -1,4 +1,4 @@
-package hrms.hrmsDatabase.configuration;
+/*package hrms.hrmsDatabase.configuration;
 
 import hrms.hrmsDatabase.core.utilities.imageUploaders.*;
 
@@ -12,3 +12,4 @@ public class AppConfiguration {
         return new CloudinaryManager();
     }
 }
+*/

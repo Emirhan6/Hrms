@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -59,7 +60,14 @@ public class JobAdvertisement {
 	@Column(name="is_active")
 	private boolean isActive;
 	
-	@ManyToOne()
+	//@Column(name="")
+	//private String typeOfWork;
+	
+	@OneToOne()
+	@JoinColumn(name="work_type_id")
+	private WorkType workType;
+	
+	@OneToOne()
 	@JoinColumn(name="employer_id")
 	private Employer employer;
 

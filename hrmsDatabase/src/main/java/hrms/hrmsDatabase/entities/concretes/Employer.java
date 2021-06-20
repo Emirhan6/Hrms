@@ -1,8 +1,12 @@
 package hrms.hrmsDatabase.entities.concretes;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -23,6 +27,9 @@ public class Employer extends User{
 	@Id
 	@Column(name="user_id")
 	private int userId;
+	
+	@OneToOne(mappedBy = "employer")
+	private JobAdvertisement jobAdvertisement;
 	
 	
 	@Column(name="company_name")

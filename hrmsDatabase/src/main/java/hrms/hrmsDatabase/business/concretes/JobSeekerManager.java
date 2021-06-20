@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import hrms.hrmsDatabase.business.abstracts.JobSeekerService;
-import hrms.hrmsDatabase.core.utilities.imageUploaders.ImageService;
+import hrms.hrmsDatabase.core.utilities.imageUploaders.ImageUploadService;
+import hrms.hrmsDatabase.core.utilities.imageUploaders.ImageUploadService;
 import hrms.hrmsDatabase.core.utilities.results.DataResult;
 import hrms.hrmsDatabase.core.utilities.results.ErrorDataResult;
 import hrms.hrmsDatabase.core.utilities.results.ErrorResult;
@@ -21,9 +22,9 @@ import hrms.hrmsDatabase.entities.concretes.JobSeeker;
 public class JobSeekerManager implements JobSeekerService{
 
 	private JobSeekerDao jobSeekerDao;
-	private ImageService imageService;
+	private ImageUploadService imageService;
 	
-	public JobSeekerManager(JobSeekerDao jobSeekerDao,ImageService imageService) {
+	public JobSeekerManager(JobSeekerDao jobSeekerDao,ImageUploadService imageService) {
 		super();
 		this.jobSeekerDao = jobSeekerDao;
 		this.imageService = imageService;
@@ -51,7 +52,7 @@ public class JobSeekerManager implements JobSeekerService{
 		return new SuccessDataResult<JobSeeker>
 		(this.jobSeekerDao.getByNationalityId(nationalityId),"Data Listelendi");
 	}
-
+/*
 	@Override
 	public DataResult<JobSeeker> imageUpload(int jobSeekerId, MultipartFile file) throws IOException {
 		var jobSeeker = this.jobSeekerDao.getByUserId(jobSeekerId);
@@ -76,7 +77,7 @@ public class JobSeekerManager implements JobSeekerService{
         return new SuccessResult(url.toString());
 
     }
-
+*/
 	@Override
 	public Result delete(int id) {
 		this.jobSeekerDao.deleteById(id);
@@ -87,5 +88,16 @@ public class JobSeekerManager implements JobSeekerService{
 	public Result update(JobSeeker jobSeeker) {
 		this.jobSeekerDao.save(jobSeeker);
 		return new SuccessResult("İş Arayan Güncellendi");
+	}
+
+	@Override
+	public DataResult<JobSeeker> getById(int id) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByUserId(id),"Data Getirildi");
+		
+	}
+
+	@Override
+	public DataResult<JobSeeker> getByName(String name) {
+		return new SuccessDataResult<JobSeeker>(this.jobSeekerDao.getByFirstName(name),"Data Getirildi");
 	}
 }

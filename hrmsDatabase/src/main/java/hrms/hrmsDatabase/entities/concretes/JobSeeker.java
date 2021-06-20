@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -41,10 +43,14 @@ public class JobSeeker extends User{
 	@Column(name="birth_year")
 	private String birthDate;
 	
-	@Column(name="image_url")
-	private String imageUrl;
+	//@Column(name="image_url")
+	//private String imageUrl;
 	
 	@OneToMany(mappedBy = "jobSeeker")
     @JsonIgnore
     private List<Cv> cv;
+	
+	@JsonIgnore
+	@OneToOne(mappedBy = "jobSeeker", optional=false, fetch=FetchType.LAZY)
+	private Image image;
 }
