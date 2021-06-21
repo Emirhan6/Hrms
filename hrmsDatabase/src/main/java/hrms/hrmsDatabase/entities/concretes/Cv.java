@@ -38,10 +38,10 @@ public class Cv {
 	//@Column(name="user_id")
 	//private int userId;
 	
-	@ManyToOne()
+	@OneToOne()
     @JoinColumn(name = "user_id")
     private JobSeeker jobSeeker;
-	
+
 	@Column(name="school_name")
 	private String schoolName;
 	

@@ -52,4 +52,9 @@ public class CvManager implements CvService{
 		return new SuccessResult("Cv Eklendi");
 	}
 
+	@Override
+	public DataResult<Cv> getByJobSeeker(int userId) {
+		return new SuccessDataResult<Cv>(this.cvDao.getByJobSeeker_userId(userId),"Data Getirildi");
+	}
+
 }

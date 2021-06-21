@@ -46,9 +46,9 @@ public class JobSeeker extends User{
 	//@Column(name="image_url")
 	//private String imageUrl;
 	
-	@OneToMany(mappedBy = "jobSeeker")
+	@OneToOne(mappedBy = "jobSeeker")
     @JsonIgnore
-    private List<Cv> cv;
+    private Cv cv;
 	
 	@JsonIgnore
 	@OneToOne(mappedBy = "jobSeeker", optional=false, fetch=FetchType.LAZY)

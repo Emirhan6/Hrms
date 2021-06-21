@@ -3,6 +3,7 @@ package hrms.hrmsDatabase.api.controllers;
 //import java.time.LocalDate;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hrms.hrmsDatabase.business.abstracts.CvService;
-
+import hrms.hrmsDatabase.core.utilities.results.*;
 import hrms.hrmsDatabase.entities.concretes.Cv;
+import hrms.hrmsDatabase.entities.concretes.JobSeeker;
 
 @RestController
 @RequestMapping("/api/cvs")
+@CrossOrigin
 public class CvsController {
 
 	private CvService cvService;
@@ -41,6 +44,11 @@ public class CvsController {
         }
         return ResponseEntity.ok(result);
     }
+	
+	@PostMapping("/getbyuserid")
+	public DataResult<Cv> getByUserId(@RequestBody int userId){
+		return this.cvService.getByJobSeeker(userId);
+	}
 	
 	/*@GetMapping("/getSortedByGraduationYear")
 	public DataResult<List<Cv>> getSortedByGraduationYear(String graduationYear){
