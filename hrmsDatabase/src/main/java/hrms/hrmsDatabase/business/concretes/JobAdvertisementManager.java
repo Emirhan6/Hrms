@@ -49,9 +49,24 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 	}
 
 	@Override
-	public Result close(JobAdvertisement jobAdvertisement) {
-		jobAdvertisement.setActive(false);
-		return new SuccessResult("İlan Kapatıldı");
+	public Result deactive(JobAdvertisement jobAdvertisement) {
+		this.jobAdvertisementDao.save(jobAdvertisement);
+		return new SuccessResult("İlan Deaktive Edildi"); 
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> getByWorkTime(String workTime) {
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.getByWorkTime(workTime),"İlanlar Çalışma Zamanına Göre Listelendi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> getByCity(String workTime) {
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.getByCity_cityName(workTime),"İlanlar Şehre Göre Listelendi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisement>> getByWorkType(String workType) {
+		return new SuccessDataResult<List<JobAdvertisement>>(this.jobAdvertisementDao.getByWorkType(workType),"İlanlar Çalışma Türüne Göre Listelendi");
 	}
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import hrms.hrmsDatabase.business.abstracts.EmployerService;
-import hrms.hrmsDatabase.core.utilities.results.DataResult;
+import hrms.hrmsDatabase.core.utilities.results.*;
 import hrms.hrmsDatabase.core.utilities.results.Result;
 import hrms.hrmsDatabase.core.utilities.results.SuccessDataResult;
 import hrms.hrmsDatabase.core.utilities.results.SuccessResult;

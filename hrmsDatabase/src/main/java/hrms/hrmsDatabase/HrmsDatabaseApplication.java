@@ -3,6 +3,7 @@ package hrms.hrmsDatabase;
 //import java.io.File;
 import java.io.IOException;
 //import java.util.Map;
+import java.time.*;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -24,14 +25,6 @@ public class HrmsDatabaseApplication {
 
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(HrmsDatabaseApplication.class, args);
-		
-		//Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
-				//"cloud_name", "dpl502lxz",
-				//"api_key", "312588743187247",
-				//"api_secret", "OO6nZ7Ai25ZFl2LfRHHV4lhNJJE"));
-		
-		//File file = new File("my_image.jpg");
-		//Map uploadResult = cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
 	}
 	
 	@Bean

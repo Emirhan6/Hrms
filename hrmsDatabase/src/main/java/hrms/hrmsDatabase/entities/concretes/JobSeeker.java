@@ -1,5 +1,6 @@
 package hrms.hrmsDatabase.entities.concretes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +25,8 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name="job_seekers")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler","image"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer","handler","cv"})
 @AllArgsConstructor
 @NoArgsConstructor
 
@@ -40,7 +44,7 @@ public class JobSeeker extends User{
 	@Column(name="nationality_id")
 	private String nationalityId;
 	
-	@Column(name="birth_year")
+	@Column(name="birth_date")
 	private String birthDate;
 	
 	//@Column(name="image_url")
@@ -50,7 +54,6 @@ public class JobSeeker extends User{
     @JsonIgnore
     private Cv cv;
 	
-	@JsonIgnore
-	@OneToOne(mappedBy = "jobSeeker", optional=false, fetch=FetchType.LAZY)
+	@OneToOne(mappedBy = "jobSeeker")
 	private Image image;
 }

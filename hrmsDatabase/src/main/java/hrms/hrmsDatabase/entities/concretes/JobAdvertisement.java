@@ -1,5 +1,7 @@
 package hrms.hrmsDatabase.entities.concretes;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -63,12 +67,18 @@ public class JobAdvertisement {
 	//@Column(name="")
 	//private String typeOfWork;
 	
-	@OneToOne()
-	@JoinColumn(name="work_type_id")
-	private WorkType workType;
+	//@OneToOne()
+	//@JoinColumn(name="work_type_id")
+	//private WorkType workType;
+	
+	@Column(name="work_type")
+	private String workType;
+	
+	@Column(name="work_time")
+	private String workTime;
 	
 	@OneToOne()
-	@JoinColumn(name="employer_id")
+	@JoinColumn(name="user_id")
 	private Employer employer;
 
 	@ManyToOne()

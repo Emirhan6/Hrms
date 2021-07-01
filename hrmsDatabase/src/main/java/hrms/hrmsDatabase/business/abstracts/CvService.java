@@ -10,6 +10,8 @@ import hrms.hrmsDatabase.entities.concretes.Cv;
 public interface CvService {
 	DataResult<List<Cv>> getAll();
 	Result add(Cv cv);
+	Result delete(int id);
+	Result update(Cv cv);
 	DataResult<Cv> getByJobSeeker(int userId);
 	//DataResult<List<Cv>> getSortedByGraduationYear(String graduationYear);
 	//DataResult<List<Cv>> getSortedByExperienceDateFinish(String experienceDateFinish);

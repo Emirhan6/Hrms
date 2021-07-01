@@ -41,6 +41,7 @@ public class JobSeekersController {
 	
 	@PostMapping("/add")
 	public Result add(@RequestBody JobSeeker jobSeeker){
+		jobSeeker.getBirthDate().toString();
 		return this.jobSeekerService.add(jobSeeker);
 	}
 	

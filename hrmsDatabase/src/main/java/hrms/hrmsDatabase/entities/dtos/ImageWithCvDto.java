@@ -1,5 +1,8 @@
 package hrms.hrmsDatabase.entities.dtos;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

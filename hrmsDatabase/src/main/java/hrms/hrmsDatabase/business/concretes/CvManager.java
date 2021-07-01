@@ -57,4 +57,16 @@ public class CvManager implements CvService{
 		return new SuccessDataResult<Cv>(this.cvDao.getByJobSeeker_userId(userId),"Data Getirildi");
 	}
 
+	@Override
+	public Result update(Cv cv) {
+		this.cvDao.save(cv);
+		return new SuccessResult("Cv Güncellendi");
+	}
+
+	@Override
+	public Result delete(int id) {
+		this.cvDao.deleteById(id);
+		return new SuccessResult("Cv Silindi");
+	}
+
 }

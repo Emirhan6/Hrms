@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.sun.istack.Nullable;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,7 +32,7 @@ public class Image {
 	@Column(name = "url")
 	private String url;
 	
-	@OneToOne(optional=false,fetch=FetchType.LAZY)
+	@OneToOne(optional = false)
     @JoinColumn(name = "user_id")
 	private JobSeeker jobSeeker;
 	
